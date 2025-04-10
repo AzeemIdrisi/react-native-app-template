@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import SettingsScreen from "../screens/SettingsScreen";
+import SettingsScreen from "../screens/app/SettingsScreen";
 import { Feather } from "@expo/vector-icons";
 import HomeStack from "./HomeStack";
 
