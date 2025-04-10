@@ -29,19 +29,29 @@ A production-ready React Native template using Expo Managed Workflow, featuring 
    npm run start -- --reset-cache
    ```
 
-3. **Generate Native Projects**
+3. **Generate Native Projects (Android & iOS Directories)**
    ```bash
    npx expo prebuild
    ```
 
-4. **Regenerate Native Projects**
+4. **Regenerate Native Projects (Clean Android & iOS Directories)**
    ```bash
    npx expo prebuild --clean
    ```
 
-5. **Update Dependencies**
+5. **Auto Update Dependencies**
    ```bash
    npm install expo@latest && npx expo install --fix
+   ```
+
+6. **Run Android Emulator/Device**
+   ```bash
+  npx expo run:android
+   ```
+
+7. **Run Android Emulator/Device in Release Mode**
+   ```bash
+  npx expo run:android --variant release
    ```
 
 ## Tech Stack
