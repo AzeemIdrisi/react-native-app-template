@@ -52,13 +52,15 @@ export const LoginScreen: React.FC<Props> = ({ navigation }) => {
     >
       <View className="flex-1 p-6 bg-white">
         <View className="mb-8">
-          <Text className="text-3xl font-bold text-gray-900 mb-2">Welcome</Text>
+          <Text className="text-3xl font-bold text-gray-900 mb-2">
+            Welcome to OpenGig
+          </Text>
           <Text className="text-gray-600">Sign in to continue</Text>
         </View>
 
         <Input
           label="Email"
-          placeholder="Enter your email"
+          placeholder="demo@opengig.work"
           keyboardType="email-address"
           autoCapitalize="none"
           value={formData.email}

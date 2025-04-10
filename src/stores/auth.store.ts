@@ -11,8 +11,8 @@ import {
 const DEMO_USERS: User[] = [
   {
     id: "1",
-    email: "demo@example.com",
-    name: "Demo User",
+    email: "demo@opengig.work",
+    name: "OpenGig User",
   },
 ];
 

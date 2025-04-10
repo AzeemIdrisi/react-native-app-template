@@ -1,9 +1,13 @@
 import { View, Text } from "react-native";
-import React, { useCallback, useRef, useMemo, useState } from "react";
+import React, { useCallback, useRef, useMemo } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { Button } from "../../components/ui/Button";
 import { DemoList } from "../../components/app/DemoList";
-import BottomSheet, { BottomSheetBackdrop } from "@gorhom/bottom-sheet";
+import {
+  BottomSheetModal,
+  BottomSheetBackdrop,
+  BottomSheetView,
+} from "@gorhom/bottom-sheet";
 
 type RootStackParamList = {
   home: undefined;
@@ -16,21 +20,18 @@ interface Props {
 
 const HomeScreen = ({ navigation }: Props) => {
   // Bottom sheet ref
-  const bottomSheetRef = useRef<BottomSheet>(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const bottomSheetRef = useRef<BottomSheetModal>(null);
 
   // Variables
-  const snapPoints = useMemo(() => ["25%", "50%", "75%"], []);
+  const snapPoints = useMemo(() => ["35%", "50%"], []);
 
   // Callbacks
   const handleOpenBottomSheet = useCallback(() => {
-    setIsOpen(true);
-    bottomSheetRef.current?.snapToIndex(1);
+    bottomSheetRef.current?.present();
   }, []);
 
   const handleCloseBottomSheet = useCallback(() => {
-    setIsOpen(false);
-    bottomSheetRef.current?.close();
+    bottomSheetRef.current?.dismiss();
   }, []);
 
   const renderBackdrop = useCallback(
@@ -49,10 +50,10 @@ const HomeScreen = ({ navigation }: Props) => {
       {/* Header */}
       <View className="p-6 border-b border-gray-100">
         <Text className="text-2xl font-bold text-gray-900 mb-2">
-          Demo Components
+          OpenGig App Demo
         </Text>
         <Text className="text-gray-600">
-          Explore FlashList and Bottom Sheet demos
+          Explore Stack, FlashList and Bottom Sheet demos
         </Text>
       </View>
 
@@ -76,29 +77,29 @@ const HomeScreen = ({ navigation }: Props) => {
       </View>
 
       {/* Bottom Sheet */}
-      <BottomSheet
+      <BottomSheetModal
         ref={bottomSheetRef}
         snapPoints={snapPoints}
-        index={isOpen ? 0 : -1}
-        onChange={(index) => setIsOpen(index !== -1)}
-        enablePanDownToClose
         backdropComponent={renderBackdrop}
+        enablePanDownToClose
       >
-        <View className="flex-1 p-6">
-          <Text className="text-xl font-bold text-gray-900 mb-4">
-            Bottom Sheet Demo
-          </Text>
-          <Text className="text-gray-600 mb-6">
-            This is a demo of the bottom sheet component. It supports gestures,
-            backdrop, and multiple snap points.
-          </Text>
-          <Button
-            title="Close"
-            onPress={handleCloseBottomSheet}
-            variant="outline"
-          />
-        </View>
-      </BottomSheet>
+        <BottomSheetView className="pb-10">
+          <View className="p-6">
+            <Text className="text-xl font-bold text-gray-900 mb-4">
+              Bottom Sheet Demo
+            </Text>
+            <Text className="text-gray-600 mb-6">
+              This is a demo of the bottom sheet component. It supports
+              gestures, backdrop, and multiple snap points.
+            </Text>
+            <Button
+              title="Close"
+              onPress={handleCloseBottomSheet}
+              variant="outline"
+            />
+          </View>
+        </BottomSheetView>
+      </BottomSheetModal>
     </View>
   );
 };
