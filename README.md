@@ -45,14 +45,14 @@ A production-ready React Native template using Expo Managed Workflow, featuring 
    ```
 
 6. **Run Android Emulator/Device**
-   ```bash
+```bash
   npx expo run:android
-   ```
+```
 
 7. **Run Android Emulator/Device in Release Mode**
-   ```bash
+```bash
   npx expo run:android --variant release
-   ```
+```
 
 ## Tech Stack
 
@@ -97,7 +97,7 @@ src/
 ### Environment Setup
 1. Install dependencies:
    ```bash
-   npm install
+   npm install && npx expo install
    ```
 2. Start the development server:
    ```bash
