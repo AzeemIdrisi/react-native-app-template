@@ -13,11 +13,12 @@ interface Props {
 
 const HomeScreen = ({ navigation }: Props) => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>OpenGig - Home Screen</Text>
-      <View style={{ marginTop: 10 }}>
+    <View className="flex-1 justify-around items-center ">
+      <Text className="text-3xl font-bold">OpenGig</Text>
+      <Text className="">Home Screen</Text>
+      <View>
         <Button
-          title="View Details"
+          title="Test Stack"
           onPress={() => navigation.navigate("details")}
         />
       </View>
