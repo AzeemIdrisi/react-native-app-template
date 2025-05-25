@@ -1,4 +1,4 @@
-<p align="center"><img src="https://avatars.githubusercontent.com/u/143503794?s=200&v=4" alt="OpenGig" /></p>
+<p align="center"><img src="https://reactnative.dev/img/header_logo.svg" alt="React Native" /></p>
 
 # React Native App Template
 
